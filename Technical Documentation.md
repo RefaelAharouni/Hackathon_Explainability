@@ -47,4 +47,10 @@ To ensure algorithmic fairness and prevent discrimination, the following sensiti
    *  **Sourcing:** `FromDiversityJobFairID`, `RecruitmentSource`.
    
 
+## **3. Modeling & Performance**
+   * **Algorithm: Random Forest Classifier:** This model was selected for its ability to handle non-linear relationships in HR data and its native support for feature importance ranking.
+   * **Validation:** Implementation of a Train-Test split to ensure the model generalizes well to new employee data.
+   * **Metrics:** Performance is evaluated using Accuracy, Precision, Recall, and F1-Score to minimize "False Negatives" (missing an employee likely to quit). 
+
+
 
