@@ -141,15 +141,15 @@ Support HR decision-making by:
 #### D. Data Quality Validations Performed
 
 Consistency checks applied (notebook section E.2):
-- ✅ EmpID: All strictly positive
-- ✅ ManagerID: All strictly positive (post fill-forward)
-- ✅ PerfScoreID: All in [1, 4]
-- ✅ EngagementSurvey, EmpSatisfaction: All in [1, 5]
-- ✅ Salary, Absences, DaysLateLast30, SpecialProjectsCount: All ≥ 0
-- ✅ DaysSinceLastReview: All ≥ 0
-- ✅ Termd: All in {0, 1}
-- ✅ DateofHire: All before or equal to today()
-- ✅ No duplicates detected post-merge
+- [x] EmpID: All strictly positive
+- [x] ManagerID: All strictly positive (post fill-forward)
+- [x] PerfScoreID: All in [1, 4]
+- [x] EngagementSurvey, EmpSatisfaction: All in [1, 5]
+- [x] Salary, Absences, DaysLateLast30, SpecialProjectsCount: All ≥ 0
+- [x] DaysSinceLastReview: All ≥ 0
+- [x] Termd: All in {0, 1}
+- [x] DateofHire: All before or equal to today()
+- [x] No duplicates detected post-merge
 
 #### E. Feature Count Summary
 
@@ -168,7 +168,7 @@ Consistency checks applied (notebook section E.2):
 
 ## 3. Model Performance
 
-### Keep_Score & Would_Keep System (✅ Implemented & Tested)
+### Keep_Score & Would_Keep System (Implemented & Tested)
 
 **Architecture:**
 - Normalizes 5 performance dimensions: Performance, Engagement, Satisfaction, Special Projects, Absences (as penalty)
@@ -248,8 +248,8 @@ would_keep (threshold=0.60):
 **Risk Statement:** Model could perpetuate historical biases if gender/race correlate with performance ratings.
 
 **Mitigations Implemented:**
-- ✅ Removed all protected attributes (gender, marital status, race, age proxies) from feature set
-- ✅ Audit: Verify keep_score distribution does NOT differ significantly by post-hoc demographic reconstruction
+- [x] Removed all protected attributes (gender, marital status, race, age proxies) from feature set
+- [x] Audit: Verify keep_score distribution does NOT differ significantly by post-hoc demographic reconstruction
 - ⏳ Planned: SHAP fairness audit comparing model predictions across simulated demographic groups
 
 **Residual Risk:** Medium—demographic signals may be reconstructed from department, position, salary correlations. Requires ongoing fairness monitoring.
@@ -260,8 +260,8 @@ would_keep (threshold=0.60):
 **Risk Statement:** HR team could use would_keep=0 as automatic justification for layoffs without human judgment.
 
 **Mitigations Implemented:**
-- ✅ Documentation (README, Model Card) explicitly states: "decision *support*, not autonomous decisions"
-- ✅ Output interpretation: would_keep=0 means "lower priority for retention" not "must terminate"
+- [x] Documentation (README, Model Card) explicitly states: "decision *support*, not autonomous decisions"
+- [x] Output interpretation: would_keep=0 means "lower priority for retention" not "must terminate"
 - ⏳ Planned: Streamlit UI to include confidence intervals and outlier flagging for edge cases
 
 **Residual Risk:** High—organizational culture determines use. Requires clear governance policy and HR training.
@@ -272,9 +272,9 @@ would_keep (threshold=0.60):
 **Risk Statement:** HR data contains sensitive personal information; unauthorized access or model inversion attacks possible.
 
 **Mitigations Implemented:**
-- ✅ All processing done locally (no cloud APIs, no external LLM calls)
-- ✅ Removed explicit identifiers (Employee_Name, EmpID reassigned post-merge) where possible
-- ✅ Text sanitization applied (HTML entities, emojis, malformed tags removed before processing)
+- ⏳ All processing done locally (no cloud APIs, no external LLM calls)
+- [x] Removed explicit identifiers (Employee_Name, EmpID reassigned post-merge) where possible
+- ⏳ Text sanitization applied (HTML entities, emojis, malformed tags removed before processing)
 - ⏳ Planned: Encrypt model artifacts, restrict access to HR team, audit logging
 
 **Residual Risk:** Medium—CSV file in repo is unencrypted; requires access control at deployment.
@@ -285,8 +285,8 @@ would_keep (threshold=0.60):
 **Risk Statement:** LLM may invent plausible reasons if confident on low-quality text inputs.
 
 **Mitigations Planned:**
-- ✅ Confidence thresholding: Flag predictions < 0.70 confidence for manual review
-- ✅ Explainability: LIME/SHAP to show which text fragments drove prediction
+- ⏳ Confidence thresholding: Flag predictions < 0.70 confidence for manual review
+- ⏳ Explainability: LIME/SHAP to show which text fragments drove prediction
 - ⏳ Pending test: Manual evaluation of ~50 predictions by HR expert
 
 **Residual Risk:** Medium—still in design phase.
@@ -324,12 +324,12 @@ CO₂ (US avg, 0.4 kg/kWh): 0.00073 kWh × 0.4 ≈ 0.29 g CO₂
 ## 7. Cybersecurity & Robustness
 
 ### Input Validation & Sanitization
-✅ **Implemented:**
+ **Implemented:**
 - Text cleaning: HTML entity decoding, emoji/smiley removal, whitespace normalization
 - Type checking: DateofHire/DateofTermination coerced to datetime; ManagerID to integer; Salary clipped to [0, ∞)
 - Range validation: PerfScoreID ∈ [1,4], EngagementSurvey ∈ [1,5], EmpSatisfaction ∈ [1,5]
 
-⏳ **Planned:**
+ **Planned:**
 - Input blacklisting: Flag suspicious patterns (e.g., SQL injection attempts in text fields)
 - Rate limiting: Protect Streamlit interface from DoS-like bulk processing requests
 - API security: If migrated to web service, enforce authentication & HTTPS
@@ -343,12 +343,12 @@ CO₂ (US avg, 0.4 kg/kWh): 0.00073 kWh × 0.4 ≈ 0.29 g CO₂
 - Restrict production server access to authorized HR staff with MFA
 
 ### Prompt Injection (NLP Component)
-✅ **Mitigation:** TermReason field comes from internal HR database, not user input → lower injection risk.
+⏳ **Mitigation:** TermReason field comes from internal HR database, not user input → lower injection risk.
 
 ⏳ **If Streamlit UI added:** Validate all text inputs; consider prompt templating to prevent user-injected instructions from reaching LLM.
 
 ---
-
+# ce qui suit devra être supprimé
 ## 8. Model Card Completeness & Next Steps
 
 ### ✅ Sections Complete
