@@ -4,14 +4,17 @@
 **Team :** Aharouni Refaël, Goder Joshua, Gérard Paul, Montaron Léa, Farhi-Rivasseau Guillaume  
 **Date :** 17 March 2026  
 
-## Context
+---
+
+
+## 1. Context
 
 A fictional company is facing a high employee turnover rate, negatively impacting performance, team stability, and recruitment costs.  
 The Human Resources department aims to better understand the root causes of employee attrition and preserve key talent.  
 This project explores how AI can support HR decision-making by identifying early signals of disengagement and providing actionable insights.  
 
 
-## Objectives
+## 2. Objectives
 
 We propose an AI-based solution designed to assist HR teams in talent management and retention.  
 The system analyzes both quantitative and qualitative employee data to:
@@ -22,29 +25,29 @@ The system analyzes both quantitative and qualitative employee data to:
 • Provide interpretable insights to support HR decisions <br>
 
 
-## Scope
+## 3. Scope
 
 Our project focuses on internal employee data (reviews, ratings, performance criteria) and uses local and privacy-preserving AI models.  
 It was designed as a prototype for HR assistance, it does not replace human judgment.  
 It allows HR teams to understand *why* an employee is at risk, rather than relying on a black-box prediction.
 
 
-## Key Features
+## 4. Key Features
 
-#### Local LLM Deployment
+#### a)  Local LLM Deployment
 We decide to take a model that we downloaded once using Hugging Face and then used in offline mode to ensure data confidentiality.  
 All computations are performed locally, with no external API calls.
 
-#### Training and Evaluation Pipeline
+#### b)  Training and Evaluation Pipeline
 We trained the LLM on all employees who had already left the company (reviews and personal ratings) and we tested it on all current employees.
 The application allows HR to define performance criteria (like productivity and collaboration) and to assign weights to each of them.
 A global performance score was computed for each employee, enabling ranking and identification of key contributors based on a predefined threshold.
 All this will allow us to know if we want the employee to stay (he is essential to the company) or not based on an adjustable threshold.
 
-#### Departure Risk Detection
+#### c)  Departure Risk Detection
 In parallel, from the semantic comparison of the reviews and ratings assigned by the client, the LLM will allow us to know if the employee is likely to leave the company or not. For that, we used a boolean, set by default at 1 for those who have already left, and we implement another column that contains the reasons why the client wishes to leave.
 
-#### Decision Logic Framework
+#### d)  Decision Logic Framework
 
 The system compares the company’s evaluation with the predicted employee intention (stay or leave).
 Based on this comparison, two scenarios are considered:
