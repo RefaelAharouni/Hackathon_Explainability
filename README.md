@@ -26,10 +26,12 @@ The system analyzes both quantitative and qualitative employee data to:
 We decide to take a model that we downloaded once using Hugging Face and then used in offline mode to ensure data confidentiality. <br>
 All computations are performed locally, with no external API calls.
 
+We train the LLM on all employees who had already left the company (reviews and personal ratings) and we tested it on all current employees.
+The application allows HR to define performance criteria (like productivity and collaboration) and to assign weights to each of them.
+A global performance score was computed for each employee, enabling ranking and identification of key contributors based on a predefined threshold.
+All this will allow us to know if we want the employee to stay (he is essential to the company) or not based on an ajustable threshold.
 
-•	We train the LLM on all employees who have already left the company (reviews + personal ratings) and we will test it on all current employees + we will develop an application in which we will ask for its performance criteria + its reviews. For each performance criterion, a performance weight will be assigned. Thus, at the end, for each employee, we will obtain a performance score and we can rank the employees in descending order of performance score. All this will allow us to know if we want the employee to stay (he is essential to the company) or not based on a threshold (for example, 0.5). <br>
-
-•	In parallel, the LLM, from the semantic comparison of the reviews and ratings assigned by the client, will allow to know if he wants to leave the company or not. A new boolean indicating whether the client wants to leave or not (all those who have already left will be at 1 by default) will be indicated with another column containing the reasons if the client wishes to leave and nothing else. <br>
+In parallel, the LLM, from the semantic comparison of the reviews and ratings assigned by the client, will allow us to know if he wants to leave the company or not. For that, we will use a boolean set by default at 1 for  those who have already left, and we will implement an other column that contain the reasons why the client wishes to leave.
 
 •	If the two booleans are identical, then everything is fine (if the company and the employee agree for the employee to leave, then he leaves and we summarize the reasons why he wants to leave and if they both want him to stay, then he stays). If the company wants him to leave and he is part of the 30 «worst» in terms of performance score, then he will be fired, regardless of his opinion on it. If she wants him to leave but he is still performing well, then he will stay. If the company wants him to stay but he wants to leave, we will establish the reasons why he wants to leave.
 If, on the other hand, the employee wants to stay but the company wants him to leave, if he is one of the 30 «less good», he will leave, otherwise he will stay. <br>
