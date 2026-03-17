@@ -1,4 +1,4 @@
-# **Technical Documentation:**
+# **Technical Documentation: Employee Turnover Prediction and Insights**
 **Project:** Hackathon Explainability - Group 29
 
 **Authors:** Aharouni Refaël, Goder Joshua, Gérard Paul, Montaron Léa, Farhi-Rivasseau Guillaume
