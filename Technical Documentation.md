@@ -7,10 +7,10 @@
 
 ---
 
-### **1. System Overview**  
+## **1. System Overview**  
 The objective of this project is to implement an AI solution (combining NLP and Classification) to help the company understand employee quitting rates and reasons for resignation. The system identifies high-risk employees and provides actionable insights for talent retention based on performance metrics such as engagement, special projects, and absences.
 
-### **2. Data Engineering & Preprocessing**
+## **2. Data Engineering & Preprocessing**
 
 #### **A. Dataset Integration (Concatenation)**
 To increase the robustness of the model and capture a wider range of employee behaviors, we performed a horizontal concatenation of two primary datasets.
