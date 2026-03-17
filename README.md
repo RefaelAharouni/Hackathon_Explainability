@@ -49,8 +49,8 @@ In parallel, from the semantic comparison of the reviews and ratings assigned by
 The system compares the company’s evaluation with the predicted employee intention (stay or leave).
 Based on this comparison, two scenarios are considered:
 
-• The company and the employee are aligned : consistent outcome (the employee will stay or leave)
-• The company and the employee disagree : inconsistent outcome (the employee may stay or leave)
+• The company and the employee are aligned : consistent outcome (the employee will stay or leave)   
+• The company and the employee disagree : inconsistent outcome (the employee may stay or leave)   
 
 In case of mismatch, the system highlights underlying reasons and provides structured insights.   
 If an high-performing employee is flagged for departure, the compagny will try to find a solution according to the provided insights.   
