@@ -1,6 +1,6 @@
 # Employee Turnover Prediction and Insights
 
-**Project :** Hackathon Explainability AI Group 29  
+**Project :** Hackathon Explainability AI - Group 29  
 **Team :** Aharouni Refaël, Goder Joshua, Gérard Paul, Montaron Léa, Farhi-Rivasseau Guillaume  
 **Date :** 17 March 2026  
 
