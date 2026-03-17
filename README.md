@@ -16,7 +16,7 @@ This project explores how AI can support HR decision-making by identifying early
 
 ## 2. Objectives
 
-We propose an AI-based solution designed to assist HR teams in talent management and retention.  
+We propose an AI-based analytical pipeline designed to assist HR teams in talent management and retention.  
 The system analyzes both quantitative and qualitative employee data to:
 
 • Identify employees at risk of leaving <br>
@@ -28,7 +28,7 @@ The system analyzes both quantitative and qualitative employee data to:
 ## 3. Scope
 
 Our project focuses on internal employee data (reviews, ratings, performance criteria) and uses local and privacy-preserving AI models.  
-It was designed as a prototype for HR assistance, it does not replace human judgment.  
+It was designed as a model-driven analysis for HR assistance, it does not replace human judgment.  
 It allows HR teams to understand *why* an employee is at risk, rather than relying on a black-box prediction.
 
 
@@ -40,12 +40,12 @@ All computations are performed locally, with no external API calls.
 
 #### b)  Training and Evaluation Pipeline
 We trained the LLM on all employees who had already left the company (reviews and personal ratings) and we tested it on all current employees.
-The application allows HR to define performance criteria (like productivity and collaboration) and to assign weights to each of them.
+The model pipeline allows HR to define performance criteria (like productivity and collaboration) and to assign weights to each of them.
 A global performance score was computed for each employee, enabling ranking and identification of key contributors based on a predefined threshold.
 All this will allow us to know if we want the employee to stay (he is essential to the company) or not based on an adjustable threshold.
 
 #### c)  Departure Risk Detection
-In parallel, from the semantic comparison of the reviews and ratings assigned by the client, the LLM will allow us to know if the employee is likely to leave the company or not. For that, we used a boolean, set by default at 1 for those who have already left, and we implement another column that contains the reasons why the client wishes to leave.
+In parallel, from the semantic comparison of the reviews and ratings assigned by HR records, the LLM will allow us to know if the employee is likely to leave the company or not. For that, we used a boolean, set by default at 1 for those who have already left, and we implement another column that contains the reasons why the client wishes to leave.
 
 #### d)  Decision Logic Framework
 
@@ -60,7 +60,5 @@ If an high-performing employee is flagged for departure, the compagny will try t
 It could be a salary increase, an internal mobility or a promotion.   
 Our system still keep the final decision under human control.  
 
-#### User Interface
-Once the LLM has been trained, The HR will be able to use it through a streamlit interface (run.py) as a frontend. <br>
-They would be asked for information and the AI would give them an answer. <br>
-Simple word-based filtering mechanisms can be implemented to limit inappropriate or malicious inputs. <br>
+#### Model Output & Insights
+Once trained, the LLM generates a predictive report highlighting at-risk employees. It provides a structured output explaining the reasons behind each prediction (e.g., mismatch between performance and satisfaction). <br>
