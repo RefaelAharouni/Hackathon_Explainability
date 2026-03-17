@@ -1,8 +1,12 @@
-# Hackathon_Explainability
+# Hackathon Explainability AI
+
+
+**Group 29 : Aharouni Refaël, Goder Joshua, Gérard Paul, Montaron Léa, Farhi-Rivasseau Guillaume**
+
 https://colab.research.google.com/drive/1SUB4oUlV2ItxqPIXCrLRPyQXw4xjospX?usp=sharing
 
 
-## ideas
+## Ideas
 •	We decide to take a model that we download once with HuggingFace. Then, we change the offline booleans to 1 to ensure confidentiality once downloaded (local operation)
 •	We train the LLM on all employees who have already left the company (reviews + personal ratings) and we will test it on all current employees + we will develop an application in which we will ask for its performance criteria + its reviews. For each performance criterion, a performance weight will be assigned. Thus, at the end, for each employee, we will obtain a performance score and we can rank the employees in descending order of performance score. All this will allow us to know if we want the employee to stay (he is essential to the company) or not based on a threshold (for example, 0.5).
 •	In parallel, the LLM, from the semantic comparison of the reviews and ratings assigned by the client, will allow to know if he wants to leave the company or not. A new boolean indicating whether the client wants to leave or not (all those who have already left will be at 1 by default) will be indicated with another column containing the reasons if the client wishes to leave and nothing else.
